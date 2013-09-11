@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  intro: MyString
+  body: MyString
+  created_by: 
+
+two:
+  title: MyString
+  intro: MyString
+  body: MyString
+  created_by: 
