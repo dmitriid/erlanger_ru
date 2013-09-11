@@ -9,4 +9,13 @@
     <h3>Events</h3>
     <%= render partial: "events/column", collection: @frontpage_events, as: :item %>
   </div>
+  <div class="col-md-4">
+    <h3>Twitter Stream</h3>
+    <% @tweets.each do |tw| %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= tw.from_user %></div>
+        <div class="panel-body"><%= tw.text %></div>
+      </div>
+    <% end %>
+  </div>
 </div>
