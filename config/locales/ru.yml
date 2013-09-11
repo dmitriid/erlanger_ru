@@ -1,0 +1,10 @@
+ru:
+  app:
+    title: "ERLANGER.RU"
+    menu_main: "Главная Страница"
+    menu_news: "Новости"
+    menu_community: "Сообщество"
+    menu_wiki: "Вики"
+    menu_articles: "Статьи"
+  sessions:
+    logout: "Выйти"
