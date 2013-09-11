@@ -12,7 +12,7 @@
     <%= link_to t("app.title"), welcome_index_path, class: 'navbar-brand' %>
     <ul class="nav navbar-nav">
       <li<%= active_menu? 'welcome' %>><%= link_to t("app.menu_main"), welcome_index_path %></li>
-      <li<%= active_menu? 'news' %>><%= link_to t("app.menu_news"), welcome_index_path %></li>
+      <li<%= active_menu? 'news' %>><%= link_to t("app.menu_news"), news_index_path %></li>
       <li<%= active_menu? 'community' %>><%= link_to t("app.menu_community"), welcome_index_path %></li>
       <li<%= active_menu? 'wiki' %>><%= link_to t("app.menu_wiki"), welcome_index_path %></li>
       <li<%= active_menu? 'articles' %>><%= link_to t("app.menu_articles"), welcome_index_path %></li>

@@ -6,6 +6,8 @@ Erlanger::Application.routes.draw do
   scope '(:locale)' do
     get "welcome/index"
     root 'welcome#index'
+
+    resources :news
   end
 
   # Example of regular route:

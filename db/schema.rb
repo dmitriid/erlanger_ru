@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911175713) do
+ActiveRecord::Schema.define(version: 20130911195313) do
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.string   "country"
+    t.string   "city"
+    t.string   "url"
+    t.string   "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news", force: true do |t|
     t.string   "title"
