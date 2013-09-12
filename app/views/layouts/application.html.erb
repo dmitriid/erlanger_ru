@@ -13,6 +13,7 @@
     <ul class="nav navbar-nav">
       <li<%= active_menu? 'welcome' %>><%= link_to t("app.menu_main"), welcome_index_path %></li>
       <li<%= active_menu? 'news' %>><%= link_to t("app.menu_news"), news_index_path %></li>
+      <li<%= active_menu? 'events' %>><%= link_to t("app.menu_events"), events_index_path %></li>
       <li<%= active_menu? 'community' %>><%= link_to t("app.menu_community"), welcome_index_path %></li>
       <li<%= active_menu? 'wiki' %>><%= link_to t("app.menu_wiki"), welcome_index_path %></li>
       <li<%= active_menu? 'articles' %>><%= link_to t("app.menu_articles"), welcome_index_path %></li>
@@ -40,9 +41,9 @@
     %></div><% end %>
       <% if flash[:notice] %><div class="alert alert-info"><%= flash[:notice]
     %></div><% end %>
-      <%= yield %>
     </div>
   </div>
+  <%= yield %>
 </div>
 
 </body>
