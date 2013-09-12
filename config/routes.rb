@@ -8,6 +8,7 @@ Erlanger::Application.routes.draw do
     root 'welcome#index'
 
     resources :news
+    resources :events
   end
 
   # Example of regular route:
@@ -44,7 +45,7 @@ Erlanger::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
