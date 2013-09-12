@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec8964ce-a928-481f-b3ae-5fdfe1dcc436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="erlanger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,7 +84,7 @@
           <file leaf-file-name="welcome_controller.rb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="0" selection-start="478" selection-end="478" vertical-scroll-proportion="0.33076075">
+                <state line="23" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="0.5071665">
                   <folding />
                 </state>
               </provider>
@@ -1212,7 +1209,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="478" selection-end="478" vertical-scroll-proportion="0.33076075">
+        <state line="23" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="0.5071665">
           <folding />
         </state>
       </provider>

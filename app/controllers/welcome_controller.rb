@@ -19,10 +19,8 @@ class WelcomeController < ApplicationController
                          :count => 5).results
       Rails.cache.write(cached_tweets_key, t)
       Rails.cache.write(cached_at_key, tweet_time_slice)
-      p "tweets stored"
       return t
     end
-    p "tweets found cached"
     return cached_tweets
   end
 end
