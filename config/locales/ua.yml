@@ -1,0 +1,10 @@
+ua:
+  app:
+    title: "ERLANGER.RU"
+    menu_main: "Головна сторiнка"
+    menu_news: "Новини"
+    menu_community: "Спiльнота"
+    menu_wiki: "Вiкi"
+    menu_articles: "Статтi"
+  sessions:
+    logout: "Вихiд"
