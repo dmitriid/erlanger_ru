@@ -19,7 +19,7 @@ def update_cached_tweets(key, tweet)
                 }
 
   cached = Rails.cache.read(cached_keys[key]) || []
-  cached = [0..cached.size-1]
+  cached = [0..cached.size-1] if cached.size > 25
   cached.prepend(tweet)
   Rails.cache.write(cached_keys[key], cached)
 end
