@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'twitter'
+gem 'em-twitter', '~> 0.2.1'
+gem 'tweetstream'
