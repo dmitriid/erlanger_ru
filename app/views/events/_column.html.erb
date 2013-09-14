@@ -1,10 +1,10 @@
 <% unless item.i18n_events.empty? %>
   <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= item.i18n_event.first.title %>
-        at: <%= item.i18n_event.first.city %>
-        <span class="label label-default"><%= item.country %></span></h3>
+    <h3 class="panel-title"><%= item.i18n_events.first.title %>
+        <%= item.i18n_events.first.city %>
+        <span class="label label-default"><%= item.country_name %></span></h3>
   </div>
-  <div class="panel-body"><%= item.i18n_event.first.info %></div>
+  <div class="panel-body"><%= item.i18n_events.first.info %></div>
 </div>
 <% end %>

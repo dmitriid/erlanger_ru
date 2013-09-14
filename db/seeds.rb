@@ -5,14 +5,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-News.create(created_by: "admin") do |n|
-  I18nNews.create(news_id: n.id, lang_iso639:"ru",
-    title:"Тематическое пивопитие", intro:"В баре")
-end
+n = News.create(created_by: "admin")
+n.i18n_news.create(news_id: n.id, lang_iso639:"ru",
+                   title:"Тематическое пивопитие", intro:"В баре")
+n.i18n_news.create(news_id: n.id, lang_iso639:"en",
+                   title:"Russian Beer", intro:"In the bar")
 
-Event.create(country_iso3166: "se", url: "erlang-solutions.com") do |e|
-  I18nEvent.create(event_id: e.id, lang_iso639: "ru",
-     title: "Конференция EUC 2014", city: "Стокгольм",
-     info: "Дерп")
-end
+e = Event.create(country_iso3166: "se", url: "erlang-solutions.com")
+e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
+                     title: "Конференция EUC 2014", city: "Стокгольм",
+                     info: "Дерп")
+e.i18n_events.create(event_id: e.id, lang_iso639: "en",
+                     title: "EUC 2014", city: "Stockholm",
+                     info: "Derp")
 
+Country.create(country_iso3166: "se", lang_iso639: "en",
+               country_name: "Sweden", lang_name: "swedish")
+Country.create(country_iso3166: "se", lang_iso639: "ru",
+               country_name: "Швеция", lang_name: "шведский")
+Country.create(country_iso3166: "se", lang_iso639: "ua",
+               country_name: "Швеція", lang_name: "шведська")
