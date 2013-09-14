@@ -5,7 +5,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+beer_en = Tag.create(text: "beer", lang_iso639: "en")
+beer_ru = Tag.create(text: "пиво", lang_iso639: "ru")
+beer_ua = Tag.create(text: "пиво", lang_iso639: "ua")
+erlang_en = Tag.create(text: "erlang", lang_iso639: "en")
+erlang_ru = Tag.create(text: "эрланг", lang_iso639: "ru")
+erlang_ua = Tag.create(text: "ерланг", lang_iso639: "ua")
+
 n = News.create(created_by: "admin")
+NewsTag.create(news_id: n.id, tag_id: beer_en.id)
+NewsTag.create(news_id: n.id, tag_id: beer_ru.id)
+NewsTag.create(news_id: n.id, tag_id: beer_ua.id)
+NewsTag.create(news_id: n.id, tag_id: erlang_en.id)
+NewsTag.create(news_id: n.id, tag_id: erlang_ru.id)
+NewsTag.create(news_id: n.id, tag_id: erlang_ua.id)
 n.i18n_news.create(news_id: n.id, lang_iso639:"ru",
                    title:"Тематическое пивопитие", intro:"В баре")
 n.i18n_news.create(news_id: n.id, lang_iso639:"en",
@@ -13,6 +26,12 @@ n.i18n_news.create(news_id: n.id, lang_iso639:"en",
 
 e = Event.create(country_iso3166: "se", url: "erlang-solutions.com",
                  googlemap_address: "Saltmätargatan 5, 11359, Stockholm")
+EventTag.create(event_id: e.id, tag_id: beer_en.id)
+EventTag.create(event_id: e.id, tag_id: beer_ru.id)
+EventTag.create(event_id: e.id, tag_id: beer_ua.id)
+EventTag.create(event_id: e.id, tag_id: erlang_en.id)
+EventTag.create(event_id: e.id, tag_id: erlang_ru.id)
+EventTag.create(event_id: e.id, tag_id: erlang_ua.id)
 e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
                      title: "Конференция EUC 2014", city: "Стокгольм",
                      info: "Дерп")
@@ -21,6 +40,12 @@ e.i18n_events.create(event_id: e.id, lang_iso639: "en",
                      info: "Derp")
 
 a = Article.create(url: "erlang-solutions.com", created_by: "admin")
+ArticleTag.create(article_id: a.id, tag_id: beer_en.id)
+ArticleTag.create(article_id: a.id, tag_id: beer_ru.id)
+ArticleTag.create(article_id: a.id, tag_id: beer_ua.id)
+ArticleTag.create(article_id: a.id, tag_id: erlang_en.id)
+ArticleTag.create(article_id: a.id, tag_id: erlang_ru.id)
+ArticleTag.create(article_id: a.id, tag_id: erlang_ua.id)
 a.i18n_articles.create(article_id: e.id, lang_iso639: "ru",
                        title: "Что такое Erlang?", intro: "В далеком 1985-м году группа разработчиков...",
                        body: "В далеком 1985-м году группа разработчиков из компьютерных лабораторий компании Ericsson решила создать язык, который идеально бы подходил для решения задач в телекоме. Шесть лет спустя, в 1991-м, миру был представлен такой язык – Erlang.")

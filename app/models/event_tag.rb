@@ -1,2 +1,2 @@
-class EventsTag < ActiveRecord::Base
+class EventTag < ActiveRecord::Base
 end

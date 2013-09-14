@@ -14,7 +14,6 @@ class NewsController < ApplicationController
 
   # static
   def self.get_news(lang)
-    return News.includes(:i18n_news).where("i18n_news.lang_iso639" => lang).to_a
-    # return News.includes(:i18n_news).load
+    News.includes(:i18n_news).where("i18n_news.lang_iso639" => lang).to_a
   end
 end

@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20130911195313) do
     t.datetime "updated_at"
   end
 
-  create_table "articles_tags", force: true do |t|
+  create_table "article_tags", force: true do |t|
     t.integer  "article_id"
     t.integer  "tag_id"
     t.datetime "created_at"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20130911195313) do
 
   create_table "tags", force: true do |t|
     t.string   "text"
+    t.string   "lang_iso639"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
