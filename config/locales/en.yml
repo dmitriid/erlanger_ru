@@ -24,3 +24,11 @@ en:
       placing the link to erlanger.ru
   sessions:
     logout: "Log Out"
+  event:
+    location: "Event Location"
+    travel_info: "Travel Information"
+    travel_description: |
+      We can search for available flights, train, bus and car routes to this
+      event! Just let us know where will you begin your travel, a street
+      address, or city name, or airport name, anything!
+    travel_submit: "Find Routes!"
