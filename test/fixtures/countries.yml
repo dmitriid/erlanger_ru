@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iso3166: MyString
+  lang_code: MyString
+  name: MyString
+
+two:
+  iso3166: MyString
+  lang_code: MyString
+  name: MyString

@@ -13,24 +13,49 @@
 
 ActiveRecord::Schema.define(version: 20130911195313) do
 
+  create_table "countries" do |t|
+    t.string "country_iso3166"
+    t.string "lang_iso639"
+    t.string "country_name"
+    t.string "lang_name"
+  end
+
+  add_index "countries", ["lang_iso639"], name: "countries_on_lang"
+  add_index "countries", ["country_iso3166"], name: "countries_on_country"
+  add_index "countries", ["country_iso3166", "lang_iso639"], name: "countries_on_country_lang_code"
+
   create_table "events", force: true do |t|
-    t.string   "title"
-    t.string   "country"
-    t.string   "city"
+    t.string   "country_iso3166"
     t.string   "url"
-    t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "i18n_events" do |t|
+    t.integer "event_id"
+    t.string "lang_iso639"
+    t.string "city"
+    t.string "title"
+    t.string "info"
+  end
+
+  add_index "i18n_events", ["event_id", "lang_iso639"], name: "events_on_id_lang"
+
   create_table "news", force: true do |t|
-    t.string   "title"
-    t.string   "intro"
-    t.string   "body"
     t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "i18n_news" do |t|
+    t.integer "news_id"
+    t.string "lang_iso639"
+    t.string "title"
+    t.string "intro"
+    t.string "body"
+  end
+
+  add_index "i18n_news", ["news_id", "lang_iso639"], name: "news_on_id_lang"
 
   create_table "news_tags", force: true do |t|
     t.integer  "news_id"
@@ -47,5 +72,4 @@ ActiveRecord::Schema.define(version: 20130911195313) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
 end

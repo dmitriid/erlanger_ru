@@ -7,5 +7,7 @@ en:
     menu_community: "Community"
     menu_wiki: "Wiki"
     menu_articles: "Articles"
+    twitter_stream: "Twitter News"
+    details: "Read more"
   sessions:
     logout: "Log Out"
