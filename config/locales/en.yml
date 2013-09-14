@@ -17,5 +17,10 @@ en:
       Erlang's runtime system has built-in support for concurrency,
       distribution and fault tolerance. Erlang is open-source and
       free.
+    copy: |
+      &copy; 2007—2013 erlanger.ru<br/>
+      All information on this site is taken from public sources.<br/>
+      If you use materials from this site, please let reader know this by
+      placing the link to erlanger.ru
   sessions:
     logout: "Log Out"
