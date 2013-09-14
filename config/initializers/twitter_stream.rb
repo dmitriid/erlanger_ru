@@ -1,4 +1,5 @@
-# coding: utf-8
+# encoding: utf-8
+
 Rails.application.config.after_initialize do
   cyrillic = /\p{Cyrillic}+.*?\.?/ui
   erlang_hash = /#erlang/ui
@@ -20,7 +21,7 @@ def update_cached_tweets(key, tweet)
                 }
 
   cached = Rails.cache.read(cached_keys[key]) || []
-  cached = [0..cached.size-1] if cached.size > 25
+  cached = cached[0..cached.size-1] if cached.size > 25
   cached.prepend(tweet)
   Rails.cache.write(cached_keys[key], cached)
 end
