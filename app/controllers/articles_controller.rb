@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.includes(:i18n_articles).
+        where("i18n_articles.lang_iso639" => I18n.locale.to_s).take
   end
 
   def update
