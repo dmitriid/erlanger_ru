@@ -19,6 +19,14 @@ e.i18n_events.create(event_id: e.id, lang_iso639: "en",
                      title: "EUC 2014", city: "Stockholm",
                      info: "Derp")
 
+a = Article.create(url: "erlang-solutions.com", created_by: "admin")
+a.i18n_articles.create(article_id: e.id, lang_iso639: "ru",
+                       title: "Что такое Erlang?", intro: "В далеком 1985-м году группа разработчиков...",
+                       body: "В далеком 1985-м году группа разработчиков из компьютерных лабораторий компании Ericsson решила создать язык, который идеально бы подходил для решения задач в телекоме. Шесть лет спустя, в 1991-м, миру был представлен такой язык – Erlang.")
+a.i18n_articles.create(article_id: e.id, lang_iso639: "en",
+                     title: "What is Erlang?", intro: "Long time ago in 1985 group of developers...",
+                     body: "Long time ago in 1985 group of developers in Ericsson computer laboratory decided to create a new programming language, which would ideally fit for solving telecom problems. Six years later, in 1991, Erlang language was born.")
+
 Country.create(country_iso3166: "se", lang_iso639: "en", country_name: "Sweden", lang_name: "swedish")
 Country.create(country_iso3166: "se", lang_iso639: "ru", country_name: "Швеция", lang_name: "шведский")
 Country.create(country_iso3166: "se", lang_iso639: "ua", country_name: "Швеція", lang_name: "шведська")

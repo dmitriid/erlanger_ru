@@ -1,0 +1,11 @@
+<% unless item.i18n_articles.empty? %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= item.i18n_articles.first.title %></h3>
+  </div>
+  <div class="panel-body">
+      <%= item.i18n_articles.first.intro %>
+      <%= link_to t('app.details'), item %>
+  </div>
+</div>
+<% end %>

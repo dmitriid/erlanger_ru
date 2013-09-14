@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20130911195313) do
 
   add_index "i18n_events", ["event_id", "lang_iso639"], name: "events_on_id_lang"
 
+  create_table "event_tags", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_tags", ["event_id"], name: "index_event_tags_on_event_id"
+
   create_table "i18n_news", force: true do |t|
     t.integer "news_id"
     t.string  "lang_iso639"
@@ -64,8 +73,32 @@ ActiveRecord::Schema.define(version: 20130911195313) do
     t.datetime "updated_at"
   end
 
+  create_table "articles", force: true do |t|
+    t.string "created_by"
+    t.string "url"
+    t.string "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "i18n_articles", force: true do |t|
+    t.integer "article_id"
+    t.string "lang_iso639"
+    t.string "title"
+    t.string "intro"
+    t.string "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "articles_tags", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "news_tags", ["news_id"], name: "index_news_tags_on_news_id"
-  add_index "news_tags", ["tag_id"], name: "index_news_tags_on_tag_id"
 
   create_table "tags", force: true do |t|
     t.string   "text"

@@ -1,0 +1,5 @@
+<% unless @article.i18n_articles.empty? %>
+<h2><%= @article.i18n_articles.first.title %></h2>
+
+<%= @article.i18n_articles.first.body %>
+<% end %>

@@ -9,6 +9,7 @@ Erlanger::Application.routes.draw do
 
     resources :news
     resources :events
+    resources :articles
   end
 
   # Example of regular route:
