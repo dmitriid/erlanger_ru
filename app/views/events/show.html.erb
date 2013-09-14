@@ -2,6 +2,8 @@
   <h2><%= @event.i18n_events.first.title %></h2>
 
   <%= @event.i18n_events.first.info %>
+  <small class="pull-right"><% @event.get_tags.each do |tg| %>
+        <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
 
   <% if @event.googlemap_address %>
     <h2><%=t('event.location')%></h2>

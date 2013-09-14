@@ -8,6 +8,9 @@
   <div class="panel-body">
     <%= item.i18n_events.first.info %><br/>
     <%= link_to t('app.details'), item %>
+
+    <small class="pull-right"><% item.get_tags.each do |tg| %>
+      <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
   </div>
 </div>
 <% end %>
