@@ -7,5 +7,7 @@ ru:
     menu_community: "Сообщество"
     menu_wiki: "Вики"
     menu_articles: "Статьи"
+    twitter_stream: "Новости Twitter"
+    details: "Подробнее"
   sessions:
     logout: "Выйти"
