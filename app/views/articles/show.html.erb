@@ -2,4 +2,7 @@
 <h2><%= @article.i18n_articles.first.title %></h2>
 
 <%= @article.i18n_articles.first.body %>
+<small class="pull-right"><% @article.get_tags.each do |tg| %>
+  <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
+
 <% end %>
