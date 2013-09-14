@@ -7,5 +7,7 @@ ua:
     menu_community: "Спільнота"
     menu_wiki: "Вікі"
     menu_articles: "Статті"
+    twitter_stream: "Новини Twitter"
+    details: "Детальніше"
   sessions:
     logout: "Вихід"

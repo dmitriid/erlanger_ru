@@ -1,3 +1,4 @@
+# coding: utf-8
 Rails.application.config.after_initialize do
   cyrillic = /\p{Cyrillic}+.*?\.?/ui
   erlang_hash = /#erlang/ui
