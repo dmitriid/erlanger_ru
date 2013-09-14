@@ -5,6 +5,9 @@
         <%= item.i18n_events.first.city %>
         <span class="label label-default"><%= item.country_name %></span></h3>
   </div>
-  <div class="panel-body"><%= item.i18n_events.first.info %></div>
+  <div class="panel-body">
+    <%= item.i18n_events.first.info %><br/>
+    <%= link_to t('app.details'), item %>
+  </div>
 </div>
 <% end %>

@@ -1,0 +1,11 @@
+<% unless @event.i18n_events.empty? %>
+  <h2><%= @event.i18n_events.first.title %></h2>
+
+  <%= @event.i18n_events.first.info %>
+
+  <% if @event.googlemap_address %>
+    <p><%= @event.googlemap_address %></p>
+    <%= render partial: 'events/googlemap',
+              locals: {mapQuery: url_encode(@event.googlemap_address)} %>
+  <% end %>
+<% end %>

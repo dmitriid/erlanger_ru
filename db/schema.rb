@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20130911195313) do
   create_table "events", force: true do |t|
     t.string   "country_iso3166"
     t.string   "url"
+    t.string   "googlemap_address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

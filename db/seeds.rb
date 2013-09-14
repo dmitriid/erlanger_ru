@@ -11,7 +11,8 @@ n.i18n_news.create(news_id: n.id, lang_iso639:"ru",
 n.i18n_news.create(news_id: n.id, lang_iso639:"en",
                    title:"Russian Beer", intro:"In the bar")
 
-e = Event.create(country_iso3166: "se", url: "erlang-solutions.com")
+e = Event.create(country_iso3166: "se", url: "erlang-solutions.com",
+                 googlemap_address: "Saltmätargatan 5, 11359, Stockholm")
 e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
                      title: "Конференция EUC 2014", city: "Стокгольм",
                      info: "Дерп")
