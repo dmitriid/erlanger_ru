@@ -1,0 +1,14 @@
+<% authors = material.get_related_authors
+   if authors then %>
+  <h3><%=t('relation.authors')%></h3>
+  <% authors.each do |ref| %>
+    <%= ref.author.get_html.html_safe %><br/>
+  <% end %>
+<% end %>
+<% urls = material.get_related_urls
+   if urls then %>
+  <h3><%=t('relation.links')%></h3>
+  <% urls.each do |ref| %>
+    <%= link_to ref.url.name, ref.url.url %><br/>
+  <% end %>
+<% end %>
