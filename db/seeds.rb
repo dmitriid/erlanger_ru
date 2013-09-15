@@ -20,9 +20,13 @@ NewsTag.create(news_id: n.id, tag_id: erlang_en.id)
 NewsTag.create(news_id: n.id, tag_id: erlang_ru.id)
 NewsTag.create(news_id: n.id, tag_id: erlang_ua.id)
 n.i18n_news.create(news_id: n.id, lang_iso639:"ru",
-                   title:"Тематическое пивопитие", intro:"В баре")
+                   title:"Тематическое пивопитие", intro:"В баре",
+                   body:"Какой же русский *не любит* выпить?", format: 'markdown'
+                  )
 n.i18n_news.create(news_id: n.id, lang_iso639:"en",
-                   title:"Russian Beer", intro:"In the bar")
+                   title:"Russian Beer", intro:"In the bar",
+                   body: "It's<script>alert('a')</script> getting hot in here", format: 'html'
+                  )
 
 e = Event.create(country_iso3166: "se", url: "erlang-solutions.com",
                  googlemap_address: "Saltmätargatan 5, 11359, Stockholm")

@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20130911195313) do
     t.string  "lang_iso639"
     t.string  "title"
     t.string  "intro"
+    t.string  "rendered"
+    t.string  "format"
     t.string  "body"
   end
 
