@@ -12,8 +12,11 @@ class NewsController < ApplicationController
                   .where("lang_iso639" => I18n.locale.to_s)
                   .first
       if @item == nil
-        return render :status  => :not_found,
-                      :nothing => true
+        flash[:notice] = t('errors.only_default_language_availabe')
+        @item = News.find(params[:id])
+                    .i18n_news
+                    .where("lang_iso639" => Erlanger::Application.config.i18n.default_locale)
+                    .first
       end
     rescue Exception => msg
       puts msg

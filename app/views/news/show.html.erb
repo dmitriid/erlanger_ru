@@ -1,3 +1,4 @@
+<% unless @item == nil %>
 <h1><%= @item.title %></h1>
 
 <div class="row">
@@ -5,3 +6,4 @@
     <%= @item.rendered.html_safe %>
   </div>
 </div>
+<% end %>

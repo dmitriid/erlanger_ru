@@ -35,3 +35,7 @@ en:
       event! Just let us know where will you begin your travel, a street
       address, or city name, or airport name, anything!
     travel_submit: "Find Routes!"
+  errors:
+    only_default_language_availabe: |
+      This page isn't available in English. Displaying information in default
+      language
