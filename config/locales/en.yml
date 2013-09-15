@@ -22,6 +22,9 @@ en:
       All information on this site is taken from public sources.<br/>
       If you use materials from this site, please let reader know this by
       placing the link to erlanger.ru
+    copy_authors: |
+      @author <a class="text-muted" href="mailto:dmitrii@dmitriid.com">Dmitrii Dimandt</a><br/>
+      @author <a class="text-muted" href="mailto:dmytro.lytovchenko@gmail.com">Dmytro Lytovchenko</a><br/>
   sessions:
     logout: "Log Out"
   event:

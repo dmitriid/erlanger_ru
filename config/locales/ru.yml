@@ -21,6 +21,9 @@ ru:
       Все данные на сайте получены из открытых источников.<br/>
       Если вы используете материалы с сайта, пожалуйста, укажите это, поставив
       ссылку на erlanger.ru
+    copy_authors: |
+      @author <a class="text-muted" href="mailto:dmitrii@dmitriid.com">Dmitrii Dimandt</a><br/>
+      @author <a class="text-muted" href="mailto:dmytro.lytovchenko@gmail.com">Dmytro Lytovchenko</a><br/>
   sessions:
     logout: "Выйти"
   event:
