@@ -4,6 +4,8 @@ class NewsController < ApplicationController
   end
 
   def show
+    @news = News.includes(:i18n_news).
+        where("i18n_news.lang_iso639" => I18n.locale.to_s).take
   end
 
   def update
