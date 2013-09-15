@@ -7,16 +7,16 @@ class NewsController < ApplicationController
 
   def show
     begin
-      @item = News.find(params[:id])
-                  .i18n_news
-                  .where("lang_iso639" => I18n.locale.to_s)
-                  .first
-      if @item == nil
+      selected_locale = I18n.locale.to_s
+      @item = News::get_by_lang :id => params[:id],
+                                :lang => selected_locale,
+                                :use_default => true
+
+      if @item.nil?
+        flash[:notice] = t('errors.news_not_found')
+        return redirect_to :action => 'index'
+      elsif @item[:lang_iso639] != selected_locale
         flash[:notice] = t('errors.only_default_language_availabe')
-        @item = News.find(params[:id])
-                    .i18n_news
-                    .where("lang_iso639" => Erlanger::Application.config.i18n.default_locale)
-                    .first
       end
     rescue Exception => msg
       puts msg
@@ -32,7 +32,6 @@ class NewsController < ApplicationController
   end
 
   def create
-    puts params
     return render :status => 400, :layout => false if params[:items] == nil
 
     news = News.create :created_by => 'admin'

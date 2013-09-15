@@ -37,3 +37,4 @@ ru:
   errors:
     only_default_language_availabe: |
       Эта страница не доступна на русском. Показана информация на языке по умолчанию
+    news_not_found: Новость не найдена
