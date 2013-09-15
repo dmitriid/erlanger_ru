@@ -6,6 +6,20 @@ class NewsController < ApplicationController
   end
 
   def show
+    begin
+      @item = News.find(params[:id])
+                  .i18n_news
+                  .where("lang_iso639" => I18n.locale.to_s)
+                  .first
+      if @item == nil
+        return render :status  => :not_found,
+                      :nothing => true
+      end
+    rescue Exception => msg
+      puts msg
+      render :status  => :not_found,
+             :nothing => true
+    end
   end
 
   def update
@@ -25,6 +39,7 @@ class NewsController < ApplicationController
                             :title       => data[:title],
                             :body        => data[:body],
                             :intro       => data[:intro],
+                            :format      => data[:format] || 'html',
                             :lang_iso639 => lang
     end
 
@@ -38,6 +53,7 @@ class NewsController < ApplicationController
     News.includes(:i18n_news)
         .where("i18n_news.lang_iso639" => lang)
         .order("created_at DESC")
+        .limit(20)
         .to_a
   end
 end
