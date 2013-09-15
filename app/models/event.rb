@@ -24,4 +24,8 @@ class Event < ActiveRecord::Base
     RESTYPE[:event]
   end
 
+  def to_s
+    lang = I18n.locale.to_s
+    i18n_events.where("i18n_events.lang_iso639" => lang).first.title
+  end
 end

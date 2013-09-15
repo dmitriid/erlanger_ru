@@ -17,4 +17,8 @@ class Article < ActiveRecord::Base
     RESTYPE[:article]
   end
 
+  def to_s
+    lang = I18n.locale.to_s
+    i18n_articles.where("i18n_articles.lang_iso639" => lang).first.title
+  end
 end

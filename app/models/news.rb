@@ -10,4 +10,9 @@ class News < ActiveRecord::Base
   def linkable_material_type
     RESTYPE[:news]
   end
+
+  def to_s
+    lang = I18n.locale.to_s
+    i18n_news.where("i18n_news.lang_iso639" => lang).first.title
+  end
 end

@@ -22,20 +22,20 @@
 <% unless events.empty? %>
   <h3><%=t('relation.events')%></h3>
   <% events.each do |ref| %>
-    <%= link_to 'Some Event', event_path(ref.event) %><br/>
+    <%= link_to ref.event %><br/>
   <% end %>
 <% end %>
 
 <% unless news.empty? %>
   <h3><%=t('relation.news')%></h3>
   <% news.each do |ref| %>
-    <%= link_to 'Some News', news_path(ref.news) %><br/>
+    <%= link_to ref.news %><br/>
   <% end %>
 <% end %>
 
 <% unless articles.empty? %>
   <h3><%=t('relation.articles')%></h3>
   <% articles.each do |ref| %>
-    <%= link_to 'Some Article', article_path(ref.article) %><br/>
+    <%= link_to ref.article %><br/>
   <% end %>
 <% end %>
