@@ -6,7 +6,7 @@
   <div class="panel-body">
     <%= item.i18n_news.first.intro %>
     <br/>
-    <small><%= link_to t('app.details'), item %></small %>
+    <small><%= link_to t('app.details'), item %></small>
 
     <small class="pull-right"><% item.get_tags.each do |tg| %>
       <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
