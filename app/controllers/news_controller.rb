@@ -19,7 +19,6 @@ class NewsController < ApplicationController
                     .first
       end
     rescue Exception => msg
-      puts msg
       render :status  => :not_found,
              :nothing => true
     end
@@ -32,7 +31,6 @@ class NewsController < ApplicationController
   end
 
   def create
-    puts params
     return render :status => 400, :layout => false if params[:items] == nil
 
     news = News.create :created_by => 'admin'

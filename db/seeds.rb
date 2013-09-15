@@ -66,3 +66,10 @@ Country.create(country_iso3166: "ru", lang_iso639: "ua", country_name: "Росі
 Country.create(country_iso3166: "ua", lang_iso639: "en", country_name: "Ukraine", lang_name: "ukrainian")
 Country.create(country_iso3166: "ua", lang_iso639: "ru", country_name: "Украина", lang_name: "украинский")
 Country.create(country_iso3166: "ua", lang_iso639: "ua", country_name: "Україна", lang_name: "українська")
+
+Author.create(name: "Joe Armstrong")
+Author.create(name: "Robert Virding")
+
+Url.create(url: "http://erlang-solutions.com", name: "Erlang Solutions Ltd.")
+Url.create(url: "http://erlangcentral.org", name: "Erlang Central")
+Url.create(url: "http://erlang.org", name: "Erlang.org")
