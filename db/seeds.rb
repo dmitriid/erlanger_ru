@@ -11,7 +11,20 @@ beer_ua = Tag.create(text: "пиво", lang_iso639: "ua")
 erlang_en = Tag.create(text: "erlang", lang_iso639: "en")
 erlang_ru = Tag.create(text: "эрланг", lang_iso639: "ru")
 erlang_ua = Tag.create(text: "ерланг", lang_iso639: "ua")
-
+#
+#--------------------------------------------------------------------
+#
+a_joe = Author.create(name: "Joe Armstrong")
+Author.create(name: "Robert Virding")
+#
+#--------------------------------------------------------------------
+#
+url_esl = Url.create(url: "http://erlang-solutions.com", name: "Erlang Solutions Ltd.")
+Url.create(url: "http://erlangcentral.org", name: "Erlang Central")
+Url.create(url: "http://erlang.org", name: "Erlang.org")
+#
+#--------------------------------------------------------------------
+#
 n = News.create(created_by: "admin")
 NewsTag.create(news_id: n.id, tag_id: beer_en.id)
 NewsTag.create(news_id: n.id, tag_id: beer_ru.id)
@@ -27,7 +40,9 @@ n.i18n_news.create(news_id: n.id, lang_iso639:"en",
                    title:"Russian Beer", intro:"In the bar",
                    body: "It's<script>alert('a')</script> getting hot in here", format: 'html'
                   )
-
+#
+#--------------------------------------------------------------------
+#
 e = Event.create(country_iso3166: "se", url: "erlang-solutions.com",
                  googlemap_address: "Saltmätargatan 5, 11359, Stockholm")
 EventTag.create(event_id: e.id, tag_id: beer_en.id)
@@ -42,7 +57,11 @@ e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
 e.i18n_events.create(event_id: e.id, lang_iso639: "en",
                      title: "EUC 2014", city: "Stockholm",
                      info: "Derp")
-
+e.relations.create(id1: e.id, type1: RESTYPE[:event], id2: url_esl.id, type2: RESTYPE[:url])
+e.relations.create(id1: e.id, type1: RESTYPE[:event], id2: a_joe.id, type2: RESTYPE[:author])
+#
+#--------------------------------------------------------------------
+#
 a = Article.create(url: "erlang-solutions.com", created_by: "admin")
 ArticleTag.create(article_id: a.id, tag_id: beer_en.id)
 ArticleTag.create(article_id: a.id, tag_id: beer_ru.id)
@@ -56,7 +75,9 @@ a.i18n_articles.create(article_id: e.id, lang_iso639: "ru",
 a.i18n_articles.create(article_id: e.id, lang_iso639: "en",
                      title: "What is Erlang?", intro: "Long time ago in 1985 group of developers...",
                      body: "Long time ago in 1985 group of developers in Ericsson computer laboratory decided to create a new programming language, which would ideally fit for solving telecom problems. Six years later, in 1991, Erlang language was born.")
-
+#
+#--------------------------------------------------------------------
+#
 Country.create(country_iso3166: "se", lang_iso639: "en", country_name: "Sweden", lang_name: "swedish")
 Country.create(country_iso3166: "se", lang_iso639: "ru", country_name: "Швеция", lang_name: "шведский")
 Country.create(country_iso3166: "se", lang_iso639: "ua", country_name: "Швеція", lang_name: "шведська")
@@ -66,10 +87,3 @@ Country.create(country_iso3166: "ru", lang_iso639: "ua", country_name: "Росі
 Country.create(country_iso3166: "ua", lang_iso639: "en", country_name: "Ukraine", lang_name: "ukrainian")
 Country.create(country_iso3166: "ua", lang_iso639: "ru", country_name: "Украина", lang_name: "украинский")
 Country.create(country_iso3166: "ua", lang_iso639: "ua", country_name: "Україна", lang_name: "українська")
-
-Author.create(name: "Joe Armstrong")
-Author.create(name: "Robert Virding")
-
-Url.create(url: "http://erlang-solutions.com", name: "Erlang Solutions Ltd.")
-Url.create(url: "http://erlangcentral.org", name: "Erlang Central")
-Url.create(url: "http://erlang.org", name: "Erlang.org")

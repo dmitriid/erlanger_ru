@@ -16,7 +16,7 @@
       <li<%= active_menu? 'events' %>><%= link_to t('app.menu_events'), events_path %></li>
       <li<%= active_menu? 'community' %>><%= link_to t('app.menu_community'), welcome_path %></li>
       <li<%= active_menu? 'wiki' %>><%= link_to t('app.menu_wiki'), welcome_path %></li>
-      <li<%= active_menu? 'articles' %>><%= link_to t('app.menu_articles'), welcome_path %></li>
+      <li<%= active_menu? 'articles' %>><%= link_to t('app.menu_articles'), articles_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
