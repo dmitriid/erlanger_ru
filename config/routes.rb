@@ -4,7 +4,7 @@ Erlanger::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   scope '(:locale)' do
-    get "welcome/index"
+    get "welcome" => "welcome#index"
     root 'welcome#index'
 
     resources :news
