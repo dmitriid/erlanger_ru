@@ -1,13 +1,14 @@
 class Relation < ActiveRecord::Base
-  belongs_to :news,     :conditions => {:type1 => RESTYPE[:news]}
-  belongs_to :event,    :conditions => {:type1 => RESTYPE[:event]}
-  belongs_to :article,  :conditions => {:type1 => RESTYPE[:article]}
-  belongs_to :url,      :conditions => {:type1 => RESTYPE[:url]}
-  belongs_to :author,   :conditions => {:type1 => RESTYPE[:author]}
+  #belongs_to :author1, :conditions => {"relations.type1" => RESTYPE[:author]}, :class_name => 'Author', :foreign_key => :id1
+  belongs_to :author2, :conditions => {"relations.type2" => RESTYPE[:author]}, :class_name => 'Author', :foreign_key => :id2
+  belongs_to :url2, :conditions => {"relations.type2" => RESTYPE[:url]}, :class_name => 'Url', :foreign_key => :id2
 
-  has_many :news, as: :material,     :conditions => {:type2 => RESTYPE[:news]}
-  has_many :events, as: :material,   :conditions => {:type2 => RESTYPE[:event]}
-  has_many :articles, as: :material, :conditions => {:type2 => RESTYPE[:article]}
-  has_many :urls, as: :material,     :conditions => {:type2 => RESTYPE[:url]}
-  has_many :authors, as: :material,  :conditions => {:type2 => RESTYPE[:author]}
+  def author
+    return nil if type2 != RESTYPE[:author]
+    Author.find(id2)
+  end
+  def url
+    return nil if type2 != RESTYPE[:url]
+    Url.find(id2)
+  end
 end

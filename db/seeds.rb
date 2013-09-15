@@ -14,8 +14,8 @@ erlang_ua = Tag.create(text: "ерланг", lang_iso639: "ua")
 #
 #--------------------------------------------------------------------
 #
-a_joe = Author.create(name: "Joe Armstrong")
-Author.create(name: "Robert Virding")
+a_joe = Author.create(name: "Joe Armstrong", url: "http://joearms.github.io/")
+a_robert = Author.create(name: "Robert Virding", url: "http://rvirding.blogspot.se/")
 #
 #--------------------------------------------------------------------
 #
@@ -40,6 +40,8 @@ n.i18n_news.create(news_id: n.id, lang_iso639:"en",
                    title:"Russian Beer", intro:"In the bar",
                    body: "It's<script>alert('a')</script> getting hot in here", format: 'html'
                   )
+Relation.create(id1: n.id, type1: RESTYPE[:news], id2: url_esl.id, type2: RESTYPE[:url])
+Relation.create(id1: n.id, type1: RESTYPE[:news], id2: a_robert.id, type2: RESTYPE[:author])
 #
 #--------------------------------------------------------------------
 #
@@ -57,8 +59,8 @@ e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
 e.i18n_events.create(event_id: e.id, lang_iso639: "en",
                      title: "EUC 2014", city: "Stockholm",
                      info: "Derp")
-e.relations.create(id1: e.id, type1: RESTYPE[:event], id2: url_esl.id, type2: RESTYPE[:url])
-e.relations.create(id1: e.id, type1: RESTYPE[:event], id2: a_joe.id, type2: RESTYPE[:author])
+Relation.create(id1: e.id, type1: RESTYPE[:event], id2: url_esl.id, type2: RESTYPE[:url])
+Relation.create(id1: e.id, type1: RESTYPE[:event], id2: a_joe.id, type2: RESTYPE[:author])
 #
 #--------------------------------------------------------------------
 #

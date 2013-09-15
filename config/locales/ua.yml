@@ -37,3 +37,6 @@ ua:
   errors:
     only_default_language_availabe: |
       Ця сторінка не має версії українською мовою. Показана інформація іншою мовою.
+  relation:
+    authors: "Автори"
+    links: "Веб-сторінки"

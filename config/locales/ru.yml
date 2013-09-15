@@ -37,3 +37,6 @@ ru:
   errors:
     only_default_language_availabe: |
       Эта страница не доступна на русском. Показана информация на языке по умолчанию
+  relation:
+    authors: "Авторы"
+    links: "Ссылки"

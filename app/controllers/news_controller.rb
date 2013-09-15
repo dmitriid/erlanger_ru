@@ -7,6 +7,7 @@ class NewsController < ApplicationController
 
   def show
     begin
+      @news = News.find(params[:id])
       @item = News.find(params[:id])
                   .i18n_news
                   .where("lang_iso639" => I18n.locale.to_s)
@@ -51,7 +52,7 @@ class NewsController < ApplicationController
 
   # static
   def self.get_news(lang)
-    News.includes(:i18n_news)
+    News.includes([:i18n_news])
         .where("i18n_news.lang_iso639" => lang)
         .order("created_at DESC")
         .limit(20)

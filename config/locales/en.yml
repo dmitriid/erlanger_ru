@@ -39,3 +39,6 @@ en:
     only_default_language_availabe: |
       This page isn't available in English. Displaying information in default
       language
+  relation:
+    authors: "Authors"
+    links: "Links"
