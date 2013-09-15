@@ -1,0 +1,8 @@
+<% unless @news.i18n_news.empty? %>
+  <h2><%= @news.i18n_news.first.title %></h2>
+
+  <%= @news.i18n_news.first.body %>
+
+  <small class="pull-right"><% @news.get_tags.each do |tg| %>
+    <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
+<% end %>
