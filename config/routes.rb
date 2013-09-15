@@ -12,6 +12,10 @@ Erlanger::Application.routes.draw do
     resources :articles
   end
 
+  scope :api do
+    post '/news' => 'news#create'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

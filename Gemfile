@@ -47,3 +47,4 @@ end
 gem 'twitter'
 gem 'em-twitter', '~> 0.2.1'
 gem 'tweetstream'
+gem 'unidecode'
