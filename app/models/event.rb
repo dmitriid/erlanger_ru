@@ -18,4 +18,10 @@ class Event < ActiveRecord::Base
     lang = I18n.locale.to_s
     EventTag.includes(:tag).where("tags.lang_iso639" => lang).to_a
   end
+
+  include LinkableMaterial
+  def linkable_material_type
+    RESTYPE[:event]
+  end
+
 end

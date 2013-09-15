@@ -9,4 +9,10 @@ class Author < ActiveRecord::Base
     return name if url.blank?
     ActionController::Base.helpers.link_to name, url
   end
+
+  include LinkableMaterial
+  def linkable_material_type
+    RESTYPE[:author]
+  end
+
 end

@@ -42,3 +42,6 @@ en:
   relation:
     authors: "Authors"
     links: "Links"
+    events: "Related Events"
+    news: "Related News"
+    articles: "Related Articles"

@@ -1,8 +1,15 @@
 <% unless @article.i18n_articles.empty? %>
-<h2><%= @article.i18n_articles.first.title %></h2>
+<div class="row">
+  <div class="col-lg-9">
+    <h1><%= @article.i18n_articles.first.title %></h1>
 
-<%= @article.i18n_articles.first.body %>
-<small class="pull-right"><% @article.get_tags.each do |tg| %>
-  <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
+    <%= @article.i18n_articles.first.body %>
+    <small class="pull-right"><% @article.get_tags.each do |tg| %>
+      <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
 
-<% end %>
+    <% end %>
+  </div>
+  <div class="col-lg-3">
+      <%= render :partial => 'relations/column', :locals => {:material => @article} %>
+  </div>
+</div>

@@ -20,7 +20,7 @@ a_robert = Author.create(name: "Robert Virding", url: "http://rvirding.blogspot.
 #--------------------------------------------------------------------
 #
 url_esl = Url.create(url: "http://erlang-solutions.com", name: "Erlang Solutions Ltd.")
-Url.create(url: "http://erlangcentral.org", name: "Erlang Central")
+url_ec = Url.create(url: "http://erlangcentral.org", name: "Erlang Central")
 Url.create(url: "http://erlang.org", name: "Erlang.org")
 #
 #--------------------------------------------------------------------
@@ -59,7 +59,7 @@ e.i18n_events.create(event_id: e.id, lang_iso639: "ru",
 e.i18n_events.create(event_id: e.id, lang_iso639: "en",
                      title: "EUC 2014", city: "Stockholm",
                      info: "Derp")
-Relation.create(id1: e.id, type1: RESTYPE[:event], id2: url_esl.id, type2: RESTYPE[:url])
+Relation.create(id1: e.id, type1: RESTYPE[:event], id2: url_ec.id, type2: RESTYPE[:url])
 Relation.create(id1: e.id, type1: RESTYPE[:event], id2: a_joe.id, type2: RESTYPE[:author])
 #
 #--------------------------------------------------------------------
@@ -77,6 +77,10 @@ a.i18n_articles.create(article_id: e.id, lang_iso639: "ru",
 a.i18n_articles.create(article_id: e.id, lang_iso639: "en",
                      title: "What is Erlang?", intro: "Long time ago in 1985 group of developers...",
                      body: "Long time ago in 1985 group of developers in Ericsson computer laboratory decided to create a new programming language, which would ideally fit for solving telecom problems. Six years later, in 1991, Erlang language was born.")
+Relation.create(id1: a.id, type1: RESTYPE[:article], id2: url_ec.id, type2: RESTYPE[:url])
+Relation.create(id1: a.id, type1: RESTYPE[:article], id2: a_joe.id, type2: RESTYPE[:author])
+Relation.create(id1: a.id, type1: RESTYPE[:article], id2: e.id, type2: RESTYPE[:event])
+Relation.create(id1: a.id, type1: RESTYPE[:article], id2: n.id, type2: RESTYPE[:news])
 #
 #--------------------------------------------------------------------
 #
