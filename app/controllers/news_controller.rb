@@ -18,18 +18,17 @@ class NewsController < ApplicationController
     puts params
     return render :status => 400, :layout => false if params[:items] == nil
 
-    news = News.new
-    news.save
+    news = News.create :created_by => 'admin'
 
-    id = news.id
-
-    params[:items].each do |item|
-      params = ActionController::Parameters.new(item)
-      news_item = I18nNews.new params.permit(:body, :title)
-      news_item.save
+    params[:items].each do |lang, data|
+      news.i18n_news.create :news_id     => news[:id],
+                            :title       => data[:title],
+                            :body        => data[:body],
+                            :intro       => data[:intro],
+                            :lang_iso639 => lang
     end
 
-    render :status => :created, :location => "/news/#{id}", :layout => false
+    render :status => :created, :location => "/news/#{news[:id]}", :layout => false
   end
 
   # static
