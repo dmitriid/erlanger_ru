@@ -28,11 +28,16 @@ class NewsController < ApplicationController
                             :lang_iso639 => lang
     end
 
-    render :status => :created, :location => "/news/#{news[:id]}", :layout => false
+    render :status   => :created,
+           :location => "/news/#{news[:id]}",
+           :nothing  => true
   end
 
   # static
   def self.get_news(lang)
-    News.includes(:i18n_news).where("i18n_news.lang_iso639" => lang).to_a
+    News.includes(:i18n_news)
+        .where("i18n_news.lang_iso639" => lang)
+        .order("created_at DESC")
+        .to_a
   end
 end
