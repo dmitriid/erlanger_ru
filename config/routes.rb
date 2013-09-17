@@ -1,4 +1,6 @@
 Erlanger::Application.routes.draw do
+  resources :pages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,10 +8,12 @@ Erlanger::Application.routes.draw do
   scope '(:locale)' do
     get "welcome" => "welcome#index"
     root 'welcome#index'
+    get 'pages/:resource_id/' => 'pages#show', :as => :page_res
 
     resources :news
     resources :events
     resources :articles
+    #resources :pages
   end
 
   scope :api do

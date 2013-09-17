@@ -21,8 +21,9 @@
   </div>
   <div class="col-lg-3">
     <h3><%=t('app.twitter_stream')%></h3>
-    <% @pages.each do |tw| %>
-      <%=  tw.id %><br />
+    <% @pages.each do |page| %>
+      <%= url_for :controller => 'pages', :action => 'show', :resource_id => page.resource_id %>
+      <%= link_to page.title, page %><br />
     <% end %>
   </div>
 </div>
