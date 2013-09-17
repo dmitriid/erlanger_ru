@@ -93,3 +93,13 @@ Country.create(country_iso3166: "ru", lang_iso639: "ua", country_name: "Росі
 Country.create(country_iso3166: "ua", lang_iso639: "en", country_name: "Ukraine", lang_name: "ukrainian")
 Country.create(country_iso3166: "ua", lang_iso639: "ru", country_name: "Украина", lang_name: "украинский")
 Country.create(country_iso3166: "ua", lang_iso639: "ua", country_name: "Україна", lang_name: "українська")
+
+r1 = Resource.create(resource_type: 'pages')
+Page.create(:title => 'и шо', :body => 'здра', :format => 'html', 'lang' => 'ru', :resource_id => r1.id)
+Page.create(:title => 'what', :body => 'hello', :format => 'html', 'lang' => 'en', :resource_id => r1.id)
+
+r2 = Resource.create(resource_type: 'pages')
+Page.create(:title => 'и шо2', :body => 'здра2', :format => 'html', 'lang' => 'ru', :resource_id => r2.id)
+Page.create(:title => 'what2', :body => 'hello2', :format => 'html', 'lang' => 'en', :resource_id => r2.id)
+
+r1.resource_links << r2

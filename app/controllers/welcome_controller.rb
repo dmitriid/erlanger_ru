@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     @frontpage_events = EventsController::get_events(loc)
     @frontpage_articles = ArticlesController::get_articles(loc)
     @tweets = WelcomeController::get_tweets(loc)
+    @pages = Resource::find('page', 1)
   end
 
 protected

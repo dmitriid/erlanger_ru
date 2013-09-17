@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20130915104945) do
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  'resource_id'
+    t.string   'lang'
   end
 
   create_table "authors", force: true do |t|
@@ -131,6 +133,25 @@ ActiveRecord::Schema.define(version: 20130915104945) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "resources", force: true do |t|
+    t.string   'resource_type'
+  end
+
+  create_table "resource_links", force: true do |t|
+    t.integer  'from_resource_id'
+    t.integer  'to_resource_id'
+  end
+
+  create_table 'pages', force: true do |t|
+    t.integer  'resource_id'
+    t.string   'body'
+    t.string   'format'
+    t.string   'rendered'
+    t.string   'lang'
+    t.string   'title'
+    t.string   'slug'
   end
 
 end
