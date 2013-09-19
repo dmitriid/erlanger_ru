@@ -13,145 +13,90 @@
 
 ActiveRecord::Schema.define(version: 20130915104945) do
 
-  create_table "article_tags", force: true do |t|
-    t.integer  "article_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :articles, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 
-  create_table "articles", force: true do |t|
-    t.string   "created_by"
-    t.string   "url"
-    t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  'resource_id'
-    t.string   'lang'
+  create_table :authors, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.datetime :created_at
+    t.datetime :updated_at
+    t.string   :lang
+    t.string   :slug
   end
 
-  create_table "authors", force: true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :countries, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.string   :lang
+    t.string   :slug
   end
 
-  create_table "countries", force: true do |t|
-    t.string "country_iso3166"
-    t.string "lang_iso639"
-    t.string "country_name"
-    t.string "lang_name"
+  create_table :cities, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.string   :lang
+    t.string   :slug
   end
 
-  add_index "countries", ["country_iso3166", "lang_iso639"], name: "countries_on_country_lang_code"
-  add_index "countries", ["country_iso3166"], name: "countries_on_country"
-  add_index "countries", ["lang_iso639"], name: "countries_on_lang"
-
-  create_table "event_tags", force: true do |t|
-    t.integer  "event_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :events, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.string   :address
+    t.datetime :created_at
+    t.datetime :updated_at
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 
-  add_index "event_tags", ["event_id"], name: "index_event_tags_on_event_id"
-
-  create_table "events", force: true do |t|
-    t.string   "country_iso3166"
-    t.string   "url"
-    t.string   "googlemap_address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :news, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 
-  create_table "i18n_articles", force: true do |t|
-    t.integer  "article_id"
-    t.string   "lang_iso639"
-    t.string   "title"
-    t.string   "intro"
-    t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :tags, force: true do |t|
+    t.integer :resource_id
+    t.string  :text
+    t.string  :lang
   end
 
-  create_table "i18n_events", force: true do |t|
-    t.integer "event_id"
-    t.string  "lang_iso639"
-    t.string  "city"
-    t.string  "title"
-    t.string  "info"
+  create_table :urls, force: true do |t|
+    t.integer  :resource_id
+    t.string   :url
+    t.string   :name
+    t.string   :lang
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 
-  add_index "i18n_events", ["event_id", "lang_iso639"], name: "events_on_id_lang"
-
-  create_table "i18n_news", force: true do |t|
-    t.integer "news_id"
-    t.string  "lang_iso639"
-    t.string  "title"
-    t.string  "intro"
-    t.string  "rendered"
-    t.string  "format"
-    t.string  "body"
+  create_table :resources, force: true do |t|
+    t.string   :resource_type
   end
 
-  add_index "i18n_news", ["news_id", "lang_iso639"], name: "news_on_id_lang"
-
-  create_table "news", force: true do |t|
-    t.integer  "created_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "news_tags", force: true do |t|
-    t.integer  "news_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "news_tags", ["news_id"], name: "index_news_tags_on_news_id"
-
-  create_table "relations", force: true do |t|
-    t.integer  "id1"
-    t.integer  "type1"
-    t.integer  "id2"
-    t.integer  "type2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tags", force: true do |t|
-    t.string   "text"
-    t.string   "lang_iso639"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "urls", force: true do |t|
-    t.string   "url"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "resources", force: true do |t|
-    t.string   'resource_type'
-  end
-
-  create_table "resource_links", force: true do |t|
-    t.integer  'from_resource_id'
-    t.integer  'to_resource_id'
-  end
-
-  create_table 'pages', force: true do |t|
-    t.integer  'resource_id'
-    t.string   'body'
-    t.string   'format'
-    t.string   'rendered'
-    t.string   'lang'
-    t.string   'title'
-    t.string   'slug'
+  create_table :resource_links, force: true do |t|
+    t.integer  :from_resource_id
+    t.integer  :to_resource_id
   end
 
 end

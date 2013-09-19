@@ -20,10 +20,12 @@
     <%= render partial: "articles/column", collection: @frontpage_articles, as: :item %>
   </div>
   <div class="col-lg-3">
-    <h3><%=t('app.twitter_stream')%></h3>
-    <% @pages.each do |page| %>
-      <%= url_for :controller => 'pages', :action => 'show', :resource_id => page.resource_id %>
-      <%= link_to page.title, page %><br />
+    <h3><%= t('app.twitter_stream') %></h3>
+    <% @tweets.each do |tw| %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= tw.from_user %></div>
+        <div class="panel-body"><%= tw.text %></div>
+      </div>
     <% end %>
   </div>
 </div>

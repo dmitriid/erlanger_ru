@@ -2,26 +2,15 @@ class NewsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @news_list = NewsController::get_news(I18n.locale.to_s)
+    @news_list = Resource::find('news')
   end
 
   def show
     begin
-      @news = News.find(params[:id])
-      @item = News.find(params[:id])
-                  .i18n_news
-                  .where("lang_iso639" => I18n.locale.to_s)
-                  .first
-      if @item == nil
-        flash[:notice] = t('errors.only_default_language_availabe')
-        @item = News.find(params[:id])
-                    .i18n_news
-                    .where("lang_iso639" => Erlanger::Application.config.i18n.default_locale)
-                    .first
-      end
+      @item = Resource::find('news', params[:id])
+
     rescue Exception => msg
-      render :status  => :not_found,
-             :nothing => true
+      redirect_to '/'
     end
   end
 

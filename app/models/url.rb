@@ -1,7 +1,4 @@
 class Url < ActiveRecord::Base
-
-  include LinkableMaterial
-  def linkable_material_type
-    RESTYPE[:url]
-  end
+  belongs_to :resource
+  include ResourceHelper
 end

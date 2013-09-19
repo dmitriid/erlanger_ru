@@ -1,24 +1,10 @@
 class Article < ActiveRecord::Base
-  has_many :i18n_articles
+  belongs_to :resource
+  include ResourceHelper
+  include RenderableHelper
 
-  #has_many :relations, :foreign_key => :id1, :conditions => {:type1 => RESTYPE[:article]}
-  #has_many :events,   as: :material, through: :relations
-  #has_many :articles, as: :material, through: :relations
-  #has_many :urls,     as: :material, through: :relations
-  #has_many :authors,  as: :material, through: :relations
-
-  def get_tags
-    lang = I18n.locale.to_s
-    ArticleTag.includes(:tag).where("tags.lang_iso639" => lang).to_a
+  before_create do
+    self.rendered = render_body(self[:body], self[:format])
   end
 
-  include LinkableMaterial
-  def linkable_material_type
-    RESTYPE[:article]
-  end
-
-  def to_s
-    lang = I18n.locale.to_s
-    i18n_articles.where("i18n_articles.lang_iso639" => lang).first.title
-  end
 end

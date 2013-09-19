@@ -5,24 +5,39 @@ class Resource < ActiveRecord::Base
                           :foreign_key => 'from_resource_id',
                           :join_table => 'resource_links'
 
-  def self.find(*args)
-    if args.size == 1
-      assumed_class = args[0].singularize.titleize.constantize
-      puts "CLASS #{assumed_class}\n"
-      assumed_class.all
-    elsif args.size == 2
-      Resource::find(args[0]).where(:resource_id => args[1])
-    end
+  #
+  # Resource::find('type')  => Type.all for the current locale
+  #                            (returns a *collection* of Type items)
+  # Resource::find('type', id) => Type.first for the current locale
+  #                               (returns a *single* of Type item)
+  # Resource::find('type', id, 'en') => Type.first for a different locale
+  #                                     (returns a *single* of Type item)
+  #
+  #
+  def self.find(type, id = nil, lang = nil)
+    lang = [I18n.locale.to_s, '*'] if lang.nil?
+    lang = if lang.nil? then [I18n.locale.to_s, '*'] else [lang] end
+
+    assumed_class = type.singularize.titleize.constantize
+    puts "CLASS #{assumed_class}\n"
+
+    resources =  assumed_class.where(lang: lang)
+    return resources.where(:resource_id => id).first if not id.nil?
+    resources
   rescue Exception => msg
     puts "EXCEPTION #{msg}\n"
     nil
   end
 
+  #
+  # Resource.find(1).type => Type.first for the current locale
+  #                          (returns a *single* Type item)
   def method_missing(method, *args, &block)
     assumed_class = method.to_s.singularize.titleize.constantize
     puts "CLASS #{assumed_class}\n"
-    assumed_class.all.where(:resource_id => id)
-  rescue
+    assumed_class.where(:resource_id => id).where(lang: [I18n.locale.to_s, '*']).first
+  rescue Exception => msg
+    puts "EXCEPTION 2 #{msg}\n"
     super
   end
 

@@ -1,33 +1,31 @@
-<% unless @event.i18n_events.empty? %>
-  <div class="row">
-    <div class="col-lg-9">
-      <h2><%= @event.i18n_events.first.title %></h2>
+<div class="row">
+  <div class="col-lg-9">
+    <h2><%= @item.title %></h2>
 
-      <%= @event.i18n_events.first.info %>
-      <small class="pull-right"><% @event.get_tags.each do |tg| %>
-            <span class="label label-info"><%= tg.tag.text %></span><% end %></small>
+    <%= @item.rendered.html_safe %>
+    <small class="pull-right"><% @item.tag.each do |tg| %>
+        <span class="label label-info"><%= tg.text %></span><% end %></small>
 
-      <% if @event.googlemap_address %>
-        <h2><%=t('event.location')%></h2>
-        <p><%= @event.googlemap_address %></p>
-        <br/>
-        <%= render partial: 'events/googlemap',
-                  locals: {mapQuery: url_encode(@event.googlemap_address)} %>
+    <% if @item.googlemap_address %>
+      <h2><%=t('event.location')%></h2>
+      <p><%= @item.googlemap_address %></p>
+      <br/>
+      <%= render partial: 'events/googlemap',
+                 locals: {mapQuery: url_encode(@item.googlemap_address)} %>
 
-        <br/>
-        <h2><%=t('event.travel_info')%></h2>
-        <p><%=t('event.travel_description')%></p>
-        <form class="form-inline" role="form">
-          <div class="form-group">
-            <input class="form-control" id="origin" placeholder="Address or city or airport">
-          </div>
-          <input type="button" class="btn btn-primary" value="<%=t('event.travel_submit')%>"
-            onclick="find_route('<%= @event.googlemap_address %>' )">
-        </form>
-      <% end %>
-    </div>
-    <div class="col-lg-3">
-      <%= render :partial => 'relations/column', :locals => {:material => @event} %>
-    </div>
+      <br/>
+      <h2><%=t('event.travel_info')%></h2>
+      <p><%=t('event.travel_description')%></p>
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <input class="form-control" id="origin" placeholder="Address or city or airport">
+        </div>
+        <input type="button" class="btn btn-primary" value="<%=t('event.travel_submit')%>"
+               onclick="find_route('<%= @item.googlemap_address %>' )">
+      </form>
+    <% end %>
   </div>
-<% end %>
+  <div class="col-lg-3">
+    <%= render :partial => 'relations/column', :locals => {:material => @item} %>
+  </div>
+</div>

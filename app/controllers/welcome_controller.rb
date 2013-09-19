@@ -4,11 +4,10 @@ CACHE_EVERY_SEC = 300
 class WelcomeController < ApplicationController
   def index
     loc = I18n.locale.to_s
-    @frontpage_news = NewsController::get_news(loc)
-    @frontpage_events = EventsController::get_events(loc)
-    @frontpage_articles = ArticlesController::get_articles(loc)
+    @frontpage_news = Resource::find('news')
+    @frontpage_events = Resource::find('event')
+    @frontpage_articles = Resource::find('article')
     @tweets = WelcomeController::get_tweets(loc)
-    @pages = Resource::find('page')
   end
 
 protected

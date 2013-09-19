@@ -1,41 +1,41 @@
 <%
-   authors = material.get_related_authors
-   urls = material.get_related_urls
-   events = material.get_related_events
-   news = material.get_related_news
-   articles = material.get_related_articles
+   authors = material.author
+   urls = material.url
+   events = material.event
+   news = material.news
+   articles = material.article
 %>
 <% unless authors.empty? %>
   <h3><%=t('relation.authors')%></h3>
   <% authors.each do |ref| %>
-    <%= ref.author.get_html.html_safe %><br/>
+    <%= link_to ref.name, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless urls.empty? %>
-  <h3><%=t('relation.links')%></h3>
+  <h3><%= t('relation.links') %></h3>
   <% urls.each do |ref| %>
-    <%= link_to ref.url.name, ref.url.url %><br/>
+    <%= link_to ref.name, ref.url %><br/>
   <% end %>
 <% end %>
 
 <% unless events.empty? %>
-  <h3><%=t('relation.events')%></h3>
+  <h3><%= t('relation.events') %></h3>
   <% events.each do |ref| %>
-    <%= link_to ref.event %><br/>
+    <%= link_to ref.title, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless news.empty? %>
-  <h3><%=t('relation.news')%></h3>
+  <h3><%= t('relation.news') %></h3>
   <% news.each do |ref| %>
-    <%= link_to ref.news %><br/>
+    <%= link_to ref.title, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless articles.empty? %>
-  <h3><%=t('relation.articles')%></h3>
+  <h3><%= t('relation.articles') %></h3>
   <% articles.each do |ref| %>
-    <%= link_to ref.article %><br/>
+    <%= link_to ref.title, ref %><br/>
   <% end %>
 <% end %>

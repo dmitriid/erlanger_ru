@@ -8,12 +8,12 @@ Erlanger::Application.routes.draw do
   scope '(:locale)' do
     get "welcome" => "welcome#index"
     root 'welcome#index'
-    get 'pages/:resource_id/' => 'pages#show', :as => :page_res
 
     resources :news
     resources :events
     resources :articles
-    #resources :pages
+    resources :pages
+    resources :authors
   end
 
   scope :api do
