@@ -9,7 +9,6 @@ module ResourceHelper
     assumed_class.where(resource_id: resource.resource_links)
                  .where(lang: [I18n.locale.to_s, '*'])
   rescue Exception => msg
-    puts "EXCEPTION #{msg}"
     super
   end
 

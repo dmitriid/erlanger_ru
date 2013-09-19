@@ -19,13 +19,11 @@ class Resource < ActiveRecord::Base
     lang = if lang.nil? then [I18n.locale.to_s, '*'] else [lang] end
 
     assumed_class = type.singularize.titleize.constantize
-    puts "CLASS #{assumed_class}\n"
 
     resources =  assumed_class.where(lang: lang)
     return resources.where(:resource_id => id).first if not id.nil?
     resources
   rescue Exception => msg
-    puts "EXCEPTION #{msg}\n"
     nil
   end
 
@@ -34,10 +32,8 @@ class Resource < ActiveRecord::Base
   #                          (returns a *single* Type item)
   def method_missing(method, *args, &block)
     assumed_class = method.to_s.singularize.titleize.constantize
-    puts "CLASS #{assumed_class}\n"
     assumed_class.where(:resource_id => id).where(lang: [I18n.locale.to_s, '*']).first
   rescue Exception => msg
-    puts "EXCEPTION 2 #{msg}\n"
     super
   end
 
