@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-9">
+    <h1><%= @item.name %></h1>
+
+    <small class="pull-right"><% @item.tag.each do |tg| %>
+      <span class="label label-info"><%= tg.text %></span><% end %></small>
+
+    <%= render :partial => 'authors/author_of', :locals => {:author => @item} %>
+
+  </div>
+  <div class="col-lg-3">
+  </div>
+</div>
