@@ -65,7 +65,14 @@ url2 = Resource.create(resource_type: 'url')
 Url.create(:name => 'Non-russian community',
            :url => 'http://erlang.org',
            :lang => '*',
-           :resource_id => url1.id
+           :resource_id => url2.id
+          )
+
+url3 = Resource.create(resource_type: 'url')
+Url.create(:name => 'Joe Armstrong',
+           :url => 'http://joearms.github.io',
+           :lang => '*',
+           :resource_id => url3.id
           )
 
 #
@@ -94,6 +101,7 @@ Author.create(:name => 'Francesco Cesarini',
               :resource_id => author2.id
              )
 
+author1.resource_links << url3
 #
 #--------------------------------------------------------------------
 #

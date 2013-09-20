@@ -9,5 +9,11 @@
 
   </div>
   <div class="col-lg-3">
+    <% unless @item.url.empty? %>
+      <h3><%= t('relation.links') %></h3>
+      <% @item.url.each do |url| %>
+        <%=  link_to url.name, url.url %>
+      <% end %>
+    <% end %>
   </div>
 </div>
