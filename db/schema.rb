@@ -11,65 +11,91 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911195313) do
+ActiveRecord::Schema.define(version: 20130919232121) do
 
-  create_table "countries" do |t|
-    t.string "country_iso3166"
-    t.string "lang_iso639"
-    t.string "country_name"
-    t.string "lang_name"
+  create_table :resources, force: true do |t|
+    t.string   :resource_type
   end
 
-  add_index "countries", ["lang_iso639"], name: "countries_on_lang"
-  add_index "countries", ["country_iso3166"], name: "countries_on_country"
-  add_index "countries", ["country_iso3166", "lang_iso639"], name: "countries_on_country_lang_code"
-
-  create_table "events", force: true do |t|
-    t.string   "country_iso3166"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :resource_links, force: true do |t|
+    t.integer  :from_resource_id
+    t.integer  :to_resource_id
   end
 
-  create_table "i18n_events" do |t|
-    t.integer "event_id"
-    t.string "lang_iso639"
-    t.string "city"
-    t.string "title"
-    t.string "info"
+  create_table :articles, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 
-  add_index "i18n_events", ["event_id", "lang_iso639"], name: "events_on_id_lang"
-
-  create_table "news", force: true do |t|
-    t.integer  "created_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :authors, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.datetime :created_at
+    t.datetime :updated_at
+    t.string   :lang
+    t.string   :slug
   end
 
-  create_table "i18n_news" do |t|
-    t.integer "news_id"
-    t.string "lang_iso639"
-    t.string "title"
-    t.string "intro"
-    t.string "body"
+  create_table :countries, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.string   :lang
+    t.string   :slug
   end
 
-  add_index "i18n_news", ["news_id", "lang_iso639"], name: "news_on_id_lang"
-
-  create_table "news_tags", force: true do |t|
-    t.integer  "news_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :cities, force: true do |t|
+    t.integer  :resource_id
+    t.string   :name
+    t.string   :lang
+    t.string   :slug
   end
 
-  add_index "news_tags", ["news_id"], name: "index_news_tags_on_news_id"
-  add_index "news_tags", ["tag_id"], name: "index_news_tags_on_tag_id"
+  create_table :events, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.string   :address
+    t.datetime :created_at
+    t.datetime :updated_at
+    t.datetime :created_at
+    t.datetime :updated_at
+  end
 
-  create_table "tags", force: true do |t|
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table :news, force: true do |t|
+    t.integer  :resource_id
+    t.string   :title
+    t.string   :body
+    t.string   :format
+    t.string   :rendered
+    t.string   :lang
+    t.string   :slug
+    t.datetime :created_at
+    t.datetime :updated_at
+  end
+
+  create_table :tags, force: true do |t|
+    t.integer :resource_id
+    t.string  :text
+    t.string  :lang
+  end
+
+  create_table :urls, force: true do |t|
+    t.integer  :resource_id
+    t.string   :url
+    t.string   :name
+    t.string   :lang
+    t.datetime :created_at
+    t.datetime :updated_at
   end
 end

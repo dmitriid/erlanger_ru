@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to item.title, item %></h3>
+  </div>
+  <div class="panel-body">
+    <%= truncate_html(item.rendered, length: 120, omission: (link_to "  #{t('app.details')}", item)) %>
+    <small></small>
+    <small class="pull-right">
+      <% item.tag.each do |tg| %>
+        <span class="label label-info"><%= tg.text %></span>
+      <% end %></small>
+  </div>
+</div>
+

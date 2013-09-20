@@ -1,10 +1,15 @@
-<% unless item.i18n_events.empty? %>
-  <div class="panel panel-default">
+ <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= item.i18n_event.first.title %>
-        at: <%= item.i18n_event.first.city %>
-        <span class="label label-default"><%= item.country %></span></h3>
+    <h3 class="panel-title"><%= link_to item.title, item %></h3>
+    <small>
+      <span class="label label-default"><%= item.city.first.name %></span>
+      <span class="label label-default"><%= item.city.first.country.first.name %></span>
+      </small>
   </div>
-  <div class="panel-body"><%= item.i18n_event.first.info %></div>
+  <div class="panel-body">
+    <%= truncate_html(item.rendered, length: 120, omission: (link_to "  #{t('app.details')}", item)) %>
+
+    <small class="pull-right"><% item.tag.each do |tg| %>
+      <span class="label label-info"><%= tg.text %></span><% end %></small>
+  </div>
 </div>
-<% end %>
