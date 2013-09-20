@@ -4,6 +4,7 @@
    events = material.event
    news = material.news
    articles = material.article
+   in_news = material.news(:in)
 %>
 <% unless authors.empty? %>
   <h3><%=t('relation.authors')%></h3>
@@ -36,6 +37,13 @@
 <% unless articles.empty? %>
   <h3><%= t('relation.articles') %></h3>
   <% articles.each do |ref| %>
+    <%= link_to ref.title, ref %><br/>
+  <% end %>
+<% end %>
+
+<% unless in_news.empty? %>
+  <h3><%= t('relation.in_news') %></h3>
+  <% in_news.each do |ref| %>
     <%= link_to ref.title, ref %><br/>
   <% end %>
 <% end %>

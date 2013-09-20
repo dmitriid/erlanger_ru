@@ -196,3 +196,5 @@ article.resource_links << tag2
 article.resource_links << event
 article.resource_links << author1
 article.resource_links << author2
+
+news.resource_links << event
