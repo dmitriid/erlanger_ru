@@ -1,14 +1,23 @@
 Erlanger::Application.routes.draw do
+  resources :pages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   scope '(:locale)' do
-    get "welcome/index"
+    get "welcome" => "welcome#index"
     root 'welcome#index'
 
     resources :news
     resources :events
+    resources :articles
+    resources :pages
+    resources :authors
+  end
+
+  scope :api do
+    post '/news' => 'news#create'
   end
 
   # Example of regular route:

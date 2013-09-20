@@ -9,5 +9,40 @@ en:
     menu_articles: "Articles"
     twitter_stream: "Twitter News"
     details: "Read more"
+    welcome: |
+      Erlang is a programming language used to build massively
+      scalable soft real-time systems with requirements on high
+      availability. Some of its uses are in telecoms, banking,
+      e-commerce, computer telephony and instant messaging.
+      Erlang's runtime system has built-in support for concurrency,
+      distribution and fault tolerance. Erlang is open-source and
+      free.
+    copy: |
+      &copy; 2007—2013 erlanger.ru<br/>
+      All information on this site is taken from public sources.<br/>
+      If you use materials from this site, please let reader know this by
+      placing the link to erlanger.ru
+    copy_authors: |
+      @author <a class="text-muted" href="mailto:dmitrii@dmitriid.com">Dmitrii Dimandt</a><br/>
+      @author <a class="text-muted" href="mailto:dmytro.lytovchenko@gmail.com">Dmytro Lytovchenko</a><br/>
   sessions:
     logout: "Log Out"
+  event:
+    location: "Event Location"
+    travel_info: "Travel Information"
+    travel_description: |
+      We can search for available flights, train, bus and car routes to this
+      event! Just let us know where will you begin your travel, a street
+      address, or city name, or airport name, anything!
+    travel_submit: "Find Routes!"
+  errors:
+    only_default_language_availabe: |
+      This page isn't available in English. Displaying information in default
+      language
+  relation:
+    authors: "Authors"
+    links: "Links"
+    events: "Related Events"
+    news: "Related News"
+    articles: "Related Articles"
+    in_news: "Mentioned in"

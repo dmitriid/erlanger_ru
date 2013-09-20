@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   def index
-    @events_list = EventsController::get_events(I18n.locale.to_s)
+    @events_list = Resource::find('event')
   end
 
-  def self.get_events(lang)
-    # return Event.includes(:i18n_events).where("i18n_events.lang_iso639" => lang).to_a
-    return Event.includes(:i18n_events).load
+  def show
+    # TODO: If locale is not RU and object is not found, query RU locale
+    # @event = get_event(lang) || get_event(SOMETHING.config.i18n.default_locale.SOMETHING)
+    @item = Resource::find('event', params[:id])
   end
 end
