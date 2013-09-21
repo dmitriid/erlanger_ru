@@ -9,41 +9,41 @@
 <% unless authors.empty? %>
   <h3><%=t('relation.authors')%></h3>
   <% authors.each do |ref| %>
-    <%= link_to ref.name, ref %><br/>
+    <%= link_to ref.name.html_safe, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless urls.empty? %>
   <h3><%= t('relation.links') %></h3>
   <% urls.each do |ref| %>
-    <%= link_to ref.name, ref.url %><br/>
+    <%= link_to ref.name.html_safe, ref.url %><br/>
   <% end %>
 <% end %>
 
 <% unless events.empty? %>
   <h3><%= t('relation.events') %></h3>
   <% events.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless news.empty? %>
   <h3><%= t('relation.news') %></h3>
   <% news.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless articles.empty? %>
   <h3><%= t('relation.articles') %></h3>
   <% articles.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless in_news.empty? %>
   <h3><%= t('relation.in_news') %></h3>
   <% in_news.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
