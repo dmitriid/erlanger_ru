@@ -87,13 +87,17 @@ def create(category, rsc, resource, full_contents)
       Url.create(:name => get_attr('title', rsc),
                  :url => rsc['website'],
                  :lang => '*',
-                 :resource_id => resource.id
+                 :resource_id => resource.id,
+                 :created_at => Date.parse(rsc['created']),
+                 :updated_at => Date.parse(rsc['modified'])
       )
     when 'author'
       Author.create(:name => get_attr('title', rsc),
                     :lang => 'ru',
                     :resource_id => resource.id,
-                    :slug => rsc['slug']
+                    :slug => rsc['slug'],
+                    :created_at => Date.parse(rsc['created']),
+                    :updated_at => Date.parse(rsc['modified'])
       )
     when 'article'
       Article.create(:title => get_attr('title', rsc),
@@ -101,7 +105,9 @@ def create(category, rsc, resource, full_contents)
                      :format => 'html',
                      :lang => 'ru',
                      :resource_id => resource.id,
-                     :slug => rsc['slug']
+                     :slug => rsc['slug'],
+                     :created_at => Date.parse(rsc['created']),
+                     :updated_at => Date.parse(rsc['modified'])
       )
     when 'news'
       if get_attr('body', rsc).nil?
@@ -115,14 +121,18 @@ def create(category, rsc, resource, full_contents)
                   :format => 'html',
                   :lang => 'ru',
                   :resource_id => resource.id,
-                  :slug => rsc['slug']
+                  :slug => rsc['slug'],
+                  :created_at => Date.parse(rsc['created']),
+                  :updated_at => Date.parse(rsc['modified'])
       )
   end
 end
 
 def get_attr(attr, rsc)
-  return if rsc[attr].nil?
+  return '<empty> ?? ' if rsc[attr].nil?
   return rsc[attr] if rsc[attr]['trans'].nil?
+  return '' if rsc[attr]['trans']['ru'].nil? and rsc[attr]['trans']['en'].nil?
+  return rsc[attr]['trans']['en'] if rsc[attr]['trans']['ru'].nil?
   rsc[attr]['trans']['ru']
 end
 
