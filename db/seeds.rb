@@ -114,7 +114,7 @@ News.create(:title => 'Тематическое пивопитие',
             :resource_id => news.id
 )
 News.create(:title => 'Russian Beer',
-            :body => "It's <script>alert('a')</script> getting hot in here",
+            :body => "<p>It's <script>alert('a')</script> getting hot in here</p><iframe src=\"http://www.slideshare.net/slideshow/embed_code/12940017\" width=\"425\" height=\"355\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowfullscreen></iframe>",
             :format => 'html',
             :lang => 'en',
             :resource_id => news.id
