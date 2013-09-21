@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @news_list = Resource::find('news')
+    @news_list = Resource::find('news').order('created_at DESC').limit(100)
   end
 
   def show

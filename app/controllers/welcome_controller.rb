@@ -4,9 +4,9 @@ CACHE_EVERY_SEC = 300
 class WelcomeController < ApplicationController
   def index
     loc = I18n.locale.to_s
-    @frontpage_news = Resource::find('news')
+    @frontpage_news = Resource::find('news').order('created_at DESC').limit(25)
     @frontpage_events = Resource::find('event')
-    @frontpage_articles = Resource::find('article')
+    @frontpage_articles = Resource::find('article').order('created_at DESC').limit(25)
     @tweets = WelcomeController::get_tweets(loc)
   end
 
