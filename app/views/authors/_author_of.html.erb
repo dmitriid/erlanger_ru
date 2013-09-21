@@ -5,13 +5,13 @@
 <% unless news.empty? %>
   <h3><%= t('relation.news') %></h3>
   <% news.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
 
 <% unless articles.empty? %>
   <h3><%= t('relation.articles') %></h3>
   <% articles.each do |ref| %>
-    <%= link_to ref.title, ref %><br/>
+    <%= link_to ref.title.html_safe, ref %><br/>
   <% end %>
 <% end %>
