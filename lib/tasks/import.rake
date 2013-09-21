@@ -129,9 +129,11 @@ def create(category, rsc, resource, full_contents)
 end
 
 def get_attr(attr, rsc)
-  return '<empty> ?? ' if rsc[attr].nil?
-  return rsc[attr] if rsc[attr]['trans'].nil?
-  return '' if rsc[attr]['trans']['ru'].nil? and rsc[attr]['trans']['en'].nil?
+  return '?? empty ??' if rsc[attr].nil?
+  return rsc[attr] if rsc[attr]['trans'].nil? or rsc[attr].is_a?(String)
+  #puts rsc
+  #puts rsc[attr]['trans'] if rsc[attr]['trans']['ru'].nil? and rsc[attr]['trans']['en'].nil?
+  return '?? empty trans ??' if rsc[attr]['trans']['ru'].nil? and rsc[attr]['trans']['en'].nil?
   return rsc[attr]['trans']['en'] if rsc[attr]['trans']['ru'].nil?
   rsc[attr]['trans']['ru']
 end
