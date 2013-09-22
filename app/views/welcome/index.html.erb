@@ -8,15 +8,15 @@
 
 <div class="row columns">
   <div class="col-lg-6 column">
-    <h2 class="news"><span><%=t('app.menu_news')%></span></h2>
+    <h2 class="news"><%= link_to t('app.menu_news'), news_index_path %></h2>
     <%= render partial: "news/column", collection: @frontpage_news, as: :item %>
   </div>
   <div class="col-lg-3 column">
-    <h2 class="articles"><span><%=t('app.menu_articles')%></span></h2>
-    <%= render partial: "articles/column", collection: @frontpage_articles, as: :item %>
+    <h2 class="articles"><%= link_to t('app.menu_articles'), articles_path %></h2>
+    <%= render partial: "articles/column_brief", collection: @frontpage_articles, as: :item %>
   </div>
   <div class="col-lg-3 column">
-    <h2 class="events"><span><%= t('app.menu_events') %></span></h2>
+    <h2 class="events"><%= link_to t('app.menu_events'), events_path %></h2>
     <%= render partial: "events/column", collection: @frontpage_events, as: :item %>
     <h2 class="twitter"><span><%= t('app.twitter_stream') %></span></h2>
     <% @tweets.each do |tw| %>

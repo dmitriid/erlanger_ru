@@ -2,8 +2,12 @@
     <h3 class="title"><%= link_to item.title.html_safe, item %></h3>
     <%= truncate_html(item.rendered, length: 200) %>
 
-    <small class="pull-right"><% item.tag.each do |tg| %>
-      <span class="label label-info"><%= tg.text %></span><% end %>
+    <small class="pull-right">
+      <span class="gray small"><%= item.created_at.strftime('%d.%m.%Y') %></span>
+      <br/>
+      <% item.tag.each do |tg| %>
+      <span class="label label-info"><%= tg.text %></span>
+      <% end %>
     </small>
-    » <%= link_to t('app.details'), item %>
+  <span class="small">» <%= link_to t('app.details'), item %></span>
 </div>

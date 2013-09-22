@@ -24,15 +24,15 @@ module ResourceHelper
     resource_id
   end
 
-  def previous
-    Resource::find(self.class.to_s).where('created_at < ?', self.created_at)
-                                   .order('created_at DESC')
+  def previous(field = 'created_at')
+    Resource::find(self.class.to_s).where("#{field} < ?", self.send(field))
+                                   .order("#{field} DESC")
                                    .first
   end
 
-  def next
-    Resource::find(self.class.to_s).where('created_at > ?', self.created_at)
-                                   .order('created_at ASC')
+  def next(field = 'created_at')
+    Resource::find(self.class.to_s).where("#{field} > ?", self.send(field))
+                                   .order("#{field} ASC")
                                    .first
   end
 end

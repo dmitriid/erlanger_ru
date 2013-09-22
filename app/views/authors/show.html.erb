@@ -6,7 +6,7 @@
       <span class="label label-info"><%= tg.text %></span><% end %></small>
 
     <%= render :partial => 'authors/author_of', :locals => {:author => @item} %>
-
+    <%= render :partial => 'relations/prev_next', :locals => {:item => @item, :field => 'name', :display => 'name'} %>
   </div>
   <div class="col-lg-3">
     <% unless @item.url.empty? %>

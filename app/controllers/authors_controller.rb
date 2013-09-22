@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @list = Resource::find('author')
+    @list = Resource::find('author').order('name')
   end
 
   def show

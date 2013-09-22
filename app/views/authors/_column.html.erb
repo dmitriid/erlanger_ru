@@ -1,6 +1,8 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= link_to item.name, item %></h3>
-  </div>
+<div class="column-item">
+  <h3 class="title"><%= link_to item.name.html_safe, item %></h3>
+  <span class="gray small">
+    <%= t('app.menu_articles') %>: <%= item.article(:in).size %>
+    <%= t('app.menu_news') %>: <%= item.news(:in).size %>
+  </span>
 </div>
 
