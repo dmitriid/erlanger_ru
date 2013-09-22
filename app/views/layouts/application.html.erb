@@ -11,12 +11,11 @@
 <nav class="navbar navbar-default" role="navigation">
     <%= link_to t('app.title'), welcome_path, class: 'navbar-brand' %>
     <ul class="nav navbar-nav">
-      <li<%= active_menu? 'welcome' %>><%= link_to t('app.menu_main'), welcome_path %></li>
-      <li<%= active_menu? 'news' %>><%= link_to t('app.menu_news'), news_index_path %></li>
-      <li<%= active_menu? 'events' %>><%= link_to t('app.menu_events'), events_path %></li>
-      <li<%= active_menu? 'community' %>><%= link_to t('app.menu_community'), welcome_path %></li>
-      <li<%= active_menu? 'wiki' %>><%= link_to t('app.menu_wiki'), welcome_path %></li>
-      <li<%= active_menu? 'articles' %>><%= link_to t('app.menu_articles'), articles_path %></li>
+      <li<%= active_menu? 'news' %> id="news"><%= link_to t('app.menu_news'), news_index_path %></li>
+      <li<%= active_menu? 'events' %> id="events"><%= link_to t('app.menu_events'), events_path %></li>
+      <li<%= active_menu? 'community' %> id="community"><%= link_to t('app.menu_community'), welcome_path %></li>
+      <li<%= active_menu? 'wiki' %> id="wiki"><%= link_to t('app.menu_wiki'), welcome_path %></li>
+      <li<%= active_menu? 'articles' %> id="articles"><%= link_to t('app.menu_articles'), articles_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
