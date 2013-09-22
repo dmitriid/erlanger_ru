@@ -1,0 +1,10 @@
+<div class="col-lg-6 prev">
+  <% unless @item.previous.nil? %>
+    <%= link_to "« #{@item.previous.title}".html_safe, @item.previous %>
+  <% end %>
+</div>
+<div class="col-lg-6 push-right next">
+  <% unless @item.next.nil? %>
+    <%= link_to "#{@item.next.title} »".html_safe, @item.next %>
+  <% end %>
+</div>

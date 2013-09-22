@@ -2,8 +2,10 @@
   <div class="col-lg-9">
     <h1><%= @item.title.html_safe %></h1>
     <%= @item.rendered.html_safe %>
+    <%= render :partial => 'relations/prev_next', :locals => {:item => @item} %>
   </div>
   <div class="col-lg-3">
     <%= render :partial => 'relations/column', :locals => {:material => @item} %>
   </div>
 </div>
+

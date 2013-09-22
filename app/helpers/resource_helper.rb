@@ -23,4 +23,16 @@ module ResourceHelper
   def to_param
     resource_id
   end
+
+  def previous
+    Resource::find(self.class.to_s).where('created_at < ?', self.created_at)
+                                   .order('created_at DESC')
+                                   .first
+  end
+
+  def next
+    Resource::find(self.class.to_s).where('created_at > ?', self.created_at)
+                                   .order('created_at ASC')
+                                   .first
+  end
 end

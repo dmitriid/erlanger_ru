@@ -110,3 +110,13 @@ li#events.active > a, li#events > a:hover {
 li#articles.active > a, li#articles > a:hover {
     border-bottom: 4px solid rgb(40, 87, 34);
 }
+
+div.prev, div.next {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dotted #212121;
+}
+
+div.next {
+    text-align: right;
+}

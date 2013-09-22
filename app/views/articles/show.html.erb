@@ -5,6 +5,7 @@
     <%= @item.rendered.html_safe %>
     <small class="pull-right"><% @item.tag.each do |tg| %>
       <span class="label label-info"><%= tg.text %></span><% end %></small>
+    <%= render :partial => 'relations/prev_next', :locals => {:item => @item} %>
   </div>
   <div class="col-lg-3">
       <%= render :partial => 'relations/column', :locals => {:material => @item} %>
