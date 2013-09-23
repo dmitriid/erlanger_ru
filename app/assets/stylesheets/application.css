@@ -19,6 +19,10 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
+blockquote p {
+    font-size: 100%;
+}
+
 nav.navbar {
     height: 56px;
     position: fixed;
@@ -133,4 +137,29 @@ span.gray {
 
 span.small {
     font-size: .95em;
+}
+
+span.circle-small {
+    display: inline-block;
+    border-radius: 1em;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    background-color: #ddd;
+}
+
+span.circle-small a {
+    color: #777;
+}
+
+a[href^="http://"]:before, a[href^="https://"]:before {
+    content: "➤";
+    color: #666666;
+    font-size: 0.5em;
+    line-height: 1.3em;
+    margin: 0 0 0 5px;
+    padding: 1px;
+    text-align: center;
+    width: 1.3em;
 }

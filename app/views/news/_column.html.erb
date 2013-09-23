@@ -4,6 +4,9 @@
 
     <small class="pull-right">
       <span class="gray small"><%= item.created_at.strftime('%d.%m.%Y') %></span>
+      <% item.author.each do |a| %>
+        <span class="circle-small"><%= link_to a.initials, a %></span>
+      <% end %>
       <br/>
       <% item.tag.each do |tg| %>
       <span class="label label-info"><%= tg.text %></span>
