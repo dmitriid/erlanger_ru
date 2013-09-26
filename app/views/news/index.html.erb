@@ -1,5 +1,9 @@
 <h1><%= t('app.menu_news') %></h1>
-
+<div class="row">
+  <div class="col-lg-12">
+    <%= paginate @news_list %>
+  </div>
+</div>
 <div class="row">
   <div class="col-lg-12">
     <%= render partial: 'news/column', collection: @news_list, as: :item %>
