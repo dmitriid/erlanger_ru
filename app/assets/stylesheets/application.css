@@ -14,6 +14,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 140%;
+    background-color: #333;
 }
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Open Sans', sans-serif;
@@ -25,7 +26,6 @@ blockquote p {
 
 nav.navbar {
     height: 56px;
-    position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
@@ -33,15 +33,15 @@ nav.navbar {
     background: #fff;
     background: rgba(255, 255, 255, 0.985);
     border-bottom: 1px solid #eee;
-    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.20);
-    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.20);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.20);
+    border-radius: 0;
 }
 
 div.container {
     max-width: 1200px;
-    padding: 0 20px;
-    margin: 80px auto;
+    padding: 20px 20px;
+    margin: -20px auto;
+    background-color: #fff;
+
 }
 
 div.column {
@@ -149,7 +149,12 @@ span.circle-small {
     background-color: #ddd;
 }
 
-span.circle-small a {
+span.circle-small.white {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+span.circle-small a, span.circle-small {
     color: #777;
 }
 

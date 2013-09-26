@@ -5,3 +5,9 @@
     <%= render partial: 'articles/column', collection: @articles_list, as: :item %>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= paginate @articles_list %>
+  </div>
+</div>

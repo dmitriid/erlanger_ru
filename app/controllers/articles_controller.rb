@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles_list = Resource::find('article').order('created_at DESC').limit(25)
+    @articles_list = Resource::find('article').order('created_at DESC').page params[:page]
   end
 
   def show
